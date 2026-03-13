@@ -3,7 +3,7 @@ THEOS_PACKAGE_SCHEME = rootless
 ifdef SIMULATOR
 export TARGET = simulator:clang:latest:8.0
 else
-export TARGET = iphone:clang:latest:14.5
+export TARGET = iphone:clang:14.5:14.5
 export ARCHS = arm64 arm64e
 endif
 
@@ -40,7 +40,7 @@ CCVolumeMixer_PRIVATE_FRAMEWORKS = ControlCenterUIKit
 CCVolumeMixer_INSTALL_PATH = /Library/ControlCenter/Bundles/
 CCVolumeMixer_RESOURCE_DIRS = ccvolumemixer/Resources
 
-export ADDITIONAL_CFLAGS += -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=unused-function -Wno-error=unused-value -Wno-deprecated-declarations -Wno-error=unavailable-declarations -include Prefix.pch
+export ADDITIONAL_CFLAGS += -Wno-deprecated-declarations -include Prefix.pch
 
 include $(THEOS)/makefiles/common.mk
 include $(THEOS_MAKE_PATH)/tweak.mk
