@@ -33,5 +33,12 @@
 #define _MRYIPCMethod VM__MRYIPCMethod
 
 #import <UIKit/UIKit.h>
-
+#import <xpc/xpc.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+xpc_connection_t xpc_connection_create_mach_service(const char *name, dispatch_queue_t targetq, uint64_t flags);
+#ifdef __cplusplus
+}
+#endif
 #endif //__OBJC__
