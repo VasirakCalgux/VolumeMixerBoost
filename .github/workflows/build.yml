@@ -2,8 +2,7 @@ name: Build and Release VolumeMixer
 
 on:
   push:
-    branches:
-      - master
+    branches: [ "master" ]
   workflow_dispatch:
 
 jobs:
@@ -12,41 +11,51 @@ jobs:
     runs-on: macos-latest
     permissions:
       contents: write
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
+      - name: Setup Dependencies
+        run: brew install ldid xz
+
       - name: Setup Theos
-        uses: Randomblock1/theos-action@v1
+        run: git clone --recursive https://github.com/theos/theos.git ${{ github.workspace }}/theos
 
       - name: Setup iOS SDKs
         run: |
-          git clone https://github.com/theos/sdks.git $THEOS/sdks
+          rm -rf ${{ github.workspace }}/theos/sdks
+          git clone https://github.com/theos/sdks.git ${{ github.workspace }}/theos/sdks
 
-      - name: Build Tweak
+      - name: Build Package
         run: |
-          export THEOS_PACKAGE_SCHEME=rootless
-          make clean package FINALPACKAGE=1
-        
+          make clean
+          make package FINALPACKAGE=1
+        env:
+          THEOS: ${{ github.workspace }}/theos
+          THEOS_PACKAGE_SCHEME: rootless
+
       - name: Prepare Artifacts
         run: |
           mkdir -p output
           cp packages/*.deb output/
 
-      - name: Release
+      - name: Generate Release Tag
+        id: tag
+        run: echo "tag=$(date +'%Y.%m.%d-%H%M')" >> $GITHUB_OUTPUT
+
+      - name: Publish to GitHub Releases
         uses: softprops/action-gh-release@v2
-        if: success()
         with:
-          tag_name: "v${{ github.run_number }}"
-          name: "VolumeMixer v${{ github.run_number }} (Rootless)"
-          files: |
-            output/*.deb
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: VolumeMixer Release ${{ steps.tag.outputs.tag }}
+          files: output/*
           body: |
             Automated build for VolumeMixer.
             - Rootless Support
             - Volume Boost (up to 2000%)
             - Individual App Volume Control
-          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
