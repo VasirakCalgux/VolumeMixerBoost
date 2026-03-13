@@ -14,7 +14,7 @@ TWEAK_NAME = VolumeMixer
 VolumeMixer_FILES = Tweak.xm VMHookInfo.mm VMHookAudioUnit.mm 
 VolumeMixer_FILES += MRYIPC/MRYIPCCenter.m MRYIPC/mrybootstrap.m
 VolumeMixer_FRAMEWORKS = AudioToolbox AVFoundation CoreAudio CoreGraphics
-VolumeMixer_CFLAGS = -fobjc-arc
+VolumeMixer_CFLAGS = -fobjc-arc -IMRYIPC/Include
 VolumeMixer_LIBRARIES += substrate
 VolumeMixer_LOGOSFLAGS += -c generator=MobileSubstrate
 
@@ -40,7 +40,7 @@ CCVolumeMixer_PRIVATE_FRAMEWORKS = ControlCenterUIKit
 CCVolumeMixer_INSTALL_PATH = /Library/ControlCenter/Bundles/
 CCVolumeMixer_RESOURCE_DIRS = ccvolumemixer/Resources
 
-export ADDITIONAL_CFLAGS += -Wno-deprecated-declarations -include Prefix.pch
+export ADDITIONAL_CFLAGS += -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=unused-function -Wno-error=unused-value -Wno-deprecated-declarations -Wno-error=unavailable-declarations -include Prefix.pch
 
 include $(THEOS)/makefiles/common.mk
 include $(THEOS_MAKE_PATH)/tweak.mk
