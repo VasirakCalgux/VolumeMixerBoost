@@ -26,11 +26,11 @@ endif
 BUNDLE_NAME = volumemixer CCVolumeMixer
 
 volumemixer_FILES = volumemixerpref/VMPrefRootListController.m volumemixerpref/BDInfoListController.m volumemixerpref/VMLicenseViewController.m volumemixerpref/VMAuthorListController.m
+volumemixer_FILES += $(wildcard AltListDependencies/*.m) AltListDependencies/AltList.x
 volumemixer_INSTALL_PATH = /Library/PreferenceBundles
-volumemixer_FRAMEWORKS = UIKit
+volumemixer_FRAMEWORKS = UIKit MobileCoreServices
 volumemixer_PRIVATE_FRAMEWORKS = Preferences
-volumemixer_CFLAGS = -fobjc-arc
-volumemixer_EXTRA_FRAMEWORKS += AltList
+volumemixer_CFLAGS = -fobjc-arc -IAltListDependencies
 volumemixer_RESOURCE_DIRS = volumemixerpref/Resources
 
 CCVolumeMixer_BUNDLE_EXTENSION = bundle
