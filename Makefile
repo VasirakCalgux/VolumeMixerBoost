@@ -12,7 +12,8 @@ INSTALL_TARGET_PROCESSES = SpringBoard
 TWEAK_NAME = VolumeMixer
 
 VolumeMixer_FILES = Tweak.xm VMHookInfo.mm VMHookAudioUnit.mm 
-VolumeMixer_FILES += MRYIPC/MRYIPCCenter.m
+VolumeMixer_FILES += MRYIPC/MRYIPCCenter.m MRYIPC/mrybootstrap.m
+VolumeMixer_FRAMEWORKS = AudioToolbox AVFoundation CoreAudio CoreGraphics
 VolumeMixer_CFLAGS = -fobjc-arc
 VolumeMixer_LIBRARIES += substrate
 VolumeMixer_LOGOSFLAGS += -c generator=MobileSubstrate
