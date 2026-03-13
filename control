@@ -1,0 +1,10 @@
+Package: com.vasirakcalgux.volumemixerboost
+Name: VolumeMixerBoost
+Depends: mobilesubstrate, preferenceloader, com.opa334.altlist
+Version: 0.0.7-1.1.0
+Architecture: iphoneos-arm64
+Description: Independent volume control for apps with 2000% volume boost. Optimized for rootless jailbreaks (Dopamine, etc.).
+Maintainer: vasirakcalgux <https://github.com/vasirakcalgux>
+Author: Brend0n <brendonjkding@126.com>, vasirakcalgux
+Section: Tweaks
+Icon: file:///Library/PreferenceBundles/volumemixer.bundle/icon@2x.png

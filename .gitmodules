@@ -1,0 +1,6 @@
+[submodule "MRYIPC"]
+	path = MRYIPC
+	url = https://github.com/Muirey03/MRYIPC.git
+[submodule "AltListDependencies"]
+	path = AltListDependencies
+	url = https://github.com/opa334/AltList.git
