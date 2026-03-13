@@ -77,8 +77,6 @@
     }
 }
 - (void)updateVisuals {
-    CGFloat maxScale = _boostEnabled ? 20.0 : 1.0;
-    
     // Volume Boost: Visual feedback (Orange color when scale > 100%)
     if(_curScale > 1.0) {
         _clippingView.backgroundColor = [UIColor orangeColor];

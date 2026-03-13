@@ -30,7 +30,7 @@ volumemixer_FILES += $(wildcard AltListDependencies/*.m) AltListDependencies/Alt
 volumemixer_INSTALL_PATH = /Library/PreferenceBundles
 volumemixer_FRAMEWORKS = UIKit MobileCoreServices
 volumemixer_PRIVATE_FRAMEWORKS = Preferences
-volumemixer_CFLAGS = -fobjc-arc -IAltListDependencies
+volumemixer_CFLAGS = -fobjc-arc -IAltListDependencies -Wno-tautological-pointer-compare
 volumemixer_RESOURCE_DIRS = volumemixerpref/Resources
 
 CCVolumeMixer_BUNDLE_EXTENSION = bundle
