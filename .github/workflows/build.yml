@@ -1,0 +1,61 @@
+name: Build and Release VolumeMixer
+
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build VolumeMixerBoost
+    runs-on: macos-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Dependencies
+        run: brew install ldid xz
+
+      - name: Setup Theos
+        run: git clone --recursive https://github.com/theos/theos.git ${{ github.workspace }}/theos
+
+      - name: Setup iOS SDKs
+        run: |
+          rm -rf ${{ github.workspace }}/theos/sdks
+          git clone --depth 1 https://github.com/theos/sdks.git ${{ github.workspace }}/theos/sdks
+
+      - name: Build Package
+        run: |
+          make clean
+          make -j$(sysctl -n hw.ncpu) package FINALPACKAGE=1
+        env:
+          THEOS: ${{ github.workspace }}/theos
+          THEOS_PACKAGE_SCHEME: rootless
+
+      - name: Prepare Artifacts
+        run: |
+          mkdir -p output
+          cp packages/*.deb output/
+
+      - name: Generate Release Tag
+        id: tag
+        run: echo "tag=$(date +'%Y.%m.%d-%H%M')" >> $GITHUB_OUTPUT
+
+      - name: Publish to GitHub Releases
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: VolumeMixer Release ${{ steps.tag.outputs.tag }}
+          files: output/*
+          body: |
+            Automated build for VolumeMixer.
+            - Rootless Support
+            - Volume Boost (up to 2000%)
+            - Individual App Volume Control
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,9 @@
+Package: com.vasirakcalgux.ccvolumemixer
+Name: CCVolumeMixer
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome Control Center module!
+Maintainer: vasirakcalgux <vasirakcalgux@126.com>
+Author: vasirakcalgux <vasirakcalgux@126.com>
+Section: Control Center (Modules)

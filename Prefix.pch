@@ -1,0 +1,41 @@
+#ifdef __OBJC__
+
+#define kPackageName "com.vasirakcalgux.volumemixerboost"
+#define kPrefDomain @"com.vasirakcalgux.volumemixerboost"
+#define kBundlePath @THEOS_PACKAGE_INSTALL_PREFIX"/Library/PreferenceBundles/volumemixerboost.bundle"
+
+#define kWebKitBundleId @"com.apple.WebKit.WebContent"
+
+#define VMNSLocalizedString(key) NSLocalizedStringFromTableInBundle((key), @"Root", [NSBundle bundleWithPath:kBundlePath], nil)
+
+#define kPrefUpdateNotification @"com.vasirakcalgux.volumemixerboost.prefChanged"
+#define kAppListIdentifier @"com.vasirakcalgux.volumemixerboost.applist"
+
+#define kPrefAppsKey @"com.vasirakcalgux.volumemixerboost_apps"
+#define kPrefWebEnabledKey @"com.vasirakcalgux.volumemixerboost_webEnabled"
+#define kPrefWebAudioUnitHookEnabledKey @"com.vasirakcalgux.volumemixerboost_webAudioUnitHookEnabled"
+#define kPrefByVolumeButtonKey @"com.vasirakcalgux.volumemixerboost_byVolumeButton"
+#define kPrefIsHideInactiveAppsKey @"com.vasirakcalgux.volumemixerboost_isHideInactiveApps"
+#define kPrefAudioMixEnabledKey @"com.vasirakcalgux.volumemixerboost_audioMixEnabled"
+#define kPrefAudiomixAppsKey @"com.vasirakcalgux.volumemixerboost_audiomixApps"
+#define kPrefPanelPortraitYKey @"com.vasirakcalgux.volumemixerboost_panelPortraitY"
+#define kPrefPanelLandScapeYKey @"com.vasirakcalgux.volumemixerboost_panelLandScapeY"
+#define kPrefIsHideBackgroundKey @"com.vasirakcalgux.volumemixerboost_isHideBackground"
+#define kPrefShowsOnLockScreenKey @"com.vasirakcalgux.volumemixerboost_showsOnLockScreen"
+
+#define kPrefScalesKey @"com.vasirakcalgux.volumemixerboost_scales"
+#define kPrefBoostEnabledKey @"com.vasirakcalgux.volumemixerboost_boostEnabled"
+#define kPrefDidShowReleaseAlertKey @"com.vasirakcalgux.volumemixerboost_didShowReleaseAlert"
+
+#define kAllPrefKeys @[kPrefAppsKey, kPrefWebEnabledKey, kPrefWebAudioUnitHookEnabledKey, kPrefByVolumeButtonKey, kPrefIsHideInactiveAppsKey, kPrefAudioMixEnabledKey, kPrefAudiomixAppsKey, kPrefPanelPortraitYKey, kPrefPanelLandScapeYKey, kPrefIsHideBackgroundKey, kPrefShowsOnLockScreenKey, kPrefScalesKey, kPrefBoostEnabledKey, kPrefDidShowReleaseAlertKey]
+
+#if DEBUG
+#else
+#define NSLog(FORMAT, ...)
+#endif
+
+#define MRYIPCCenter VM_MRYIPCCenter
+#define _MRYIPCMethod VM__MRYIPCMethod
+
+#import <UIKit/UIKit.h>
+#endif //__OBJC__

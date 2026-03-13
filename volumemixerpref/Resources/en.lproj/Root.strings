@@ -1,0 +1,41 @@
+"CHOOSE_ENABLED_APP"="Choose Enabled App";
+"CHOOSE_AUDIO_MIX_MUSIC_APP"="Choose Music App";
+"AUTHOR"="Author";
+"BETA_ALERT_TITLE"="Read before using!!!";
+"BETA_ALERT"="This tweak does NOT control volume from system side. Instead, it hooks several audio APIs used by Apps to achieve the control of volume. It doesn't modify files on your device. But the runtime modification is detectable. Few Apps(games) may consider it as illegal. Use it AT YOUR OWN RISK";
+"ACTION_YES"="YES";
+"ACTION_NO"="NO";
+"WEB_AUDIO"="Web Audio";
+"ENABLED"="Enabled";
+"SHOW_PANEL"="Show panel";
+"BY_VOLUME_BUTTON"="By Volume Button";
+"BY_ACTIVATOR"="By Activator";
+"CONTROLCENTER"="By Control Center Module";
+"ENABLE_AUDIO_MIX"="Audio Mix";
+"AUDIO_MIX_CREDIT"="Prevent music apps from being interrupted.(This will NOT make two \"music\" mode apps play simultaneously)
+With Audio Mix Option on, apps will not show up in ControlCenter/LockScreen. Manually choose your music apps to fix that. 
+Credit: onewayticket255";
+"AUDIO_MIX_CREDIT_HYPERLINK_TEXT"="onewayticket255";
+"AUTHOR_AUDIO_MIX"="For Audio Mix part.";
+"WEB_AUDIO_AUDIO_UNIT"="Web Audio (Advanced)";
+"WEB_FOOTER_TEXT"="Not work on some types of web audio. Known: Youtube on web
+Turn off two web audio options if webpages stuck or failed to load.";
+"SELECT_ALL"="Select All";
+"DESELECT_ALL"="Deselect All";
+"CANCEL"="Cancel";
+"SELECT_DESELECT_ALL"="Select/Deselect All";
+"PANEL_PORTRAIT_Y"="Panel Y-axis (portrait)";
+"PANEL_LANDSCAPE_Y"="Panel Y-axis (landscape)";
+"HIDE_INACTIVE_APPS"="Hide Inactive Apps";
+"HIDE_BACKGROUND"="Transparent Background";
+"SHOWS_ON_LOCK_SCREEN"="Shows On Lock Screen";
+"ACTIVATOR_LISTENERS"="Activator Listeners";
+"ACTIVATOR_VOLUME_UP"="Volume Up";
+"ACTIVATOR_VOLUME_DOWN"="Volume Down";
+"ACTIVATOR_LISTENERS_FOOTER_TEXT"="Assign a gesture to turn up/down volume of running Apps. (If you don't want to touch the screen when Airplay/Carplay)";
+"MIGRATE_SETTINGS"="Migrate Settings";
+"MIGRATE_SETTINGS_"="VolumeMixer 0.0.7 is not compatible with preferences created by older versions. Do you want to restore from older preferences?";
+"RESET_SETTINGS"="Reset/Clear Settings⚠️";
+"RESET_SETTINGS_"="This will also reset/clear all per-app volume values, proceed?";
+"CONFIRM"="Confirm";
+"VOLUME_BOOST"="Volume Boost (2000%)";
