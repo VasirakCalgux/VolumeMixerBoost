@@ -27,9 +27,9 @@ jobs:
       - name: Setup iOS SDKs
         run: |
           mkdir -p ${{ github.workspace }}/theos/sdks
-          curl -LO https://github.com/theos/sdks/raw/master/iPhoneOS14.5.sdk.tar.xz
-          tar -xJf iPhoneOS14.5.sdk.tar.xz -C ${{ github.workspace }}/theos/sdks
-          rm iPhoneOS14.5.sdk.tar.xz
+          curl -LO https://github.com/theos/sdks/raw/master/iPhoneOS16.5.sdk.tar.xz
+          tar -xJf iPhoneOS16.5.sdk.tar.xz -C ${{ github.workspace }}/theos/sdks
+          rm iPhoneOS16.5.sdk.tar.xz
 
       - name: Build Package
         run: |
